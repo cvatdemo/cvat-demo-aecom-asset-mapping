@@ -1,0 +1,45 @@
+{
+ "max_validations_per_job": 10,
+ "requirements": [
+  {
+   "name": "Base rectangle",
+   "is_base": true,
+   "annotation_type": "rectangle",
+   "metric": "accuracy",
+   "required_score": 0.7,
+   "filter": ""
+  },
+  {
+   "name": "Base polyline",
+   "is_base": true,
+   "annotation_type": "polyline",
+   "metric": "accuracy",
+   "required_score": 0.7,
+   "filter": ""
+  },
+  {
+   "name": "Tank box accuracy",
+   "is_base": false,
+   "annotation_type": "rectangle",
+   "metric": "accuracy",
+   "required_score": 0.8,
+   "filter": "{\"in\":[{\"var\":\"shape.label\"},[\"tank\"]]}"
+  },
+  {
+   "name": "Missed asset: catch every tank",
+   "is_base": false,
+   "annotation_type": "rectangle",
+   "metric": "recall",
+   "required_score": 0.95,
+   "filter": "{\"in\":[{\"var\":\"shape.label\"},[\"tank\"]]}"
+  },
+  {
+   "name": "Main line accuracy",
+   "is_base": false,
+   "annotation_type": "polyline",
+   "metric": "accuracy",
+   "required_score": 0.8,
+   "filter": "{\"in\":[{\"var\":\"shape.label\"},[\"main_line\"]]}"
+  }
+ ]
+}
